@@ -6,7 +6,7 @@ import re
 
 
 # ---------------- IMPORT CONFIG ---------------- #
-from sort_samples.config_user import COPY_FILES, SOURCE_DIR, TARGET_DIR, USER_CATEGORIES
+from sort_samples.config_user import COPY_FILES, SOURCE_DIR, TARGET_DIR, CATEGORIES
 # ------------------------------------------------ #
 
 __all__ = ['infer_category']
@@ -14,7 +14,7 @@ __all__ = ['infer_category']
 # Create TOKEN_MAP for fast lookups:
 TOKEN_MAP: dict[str, str] = {
     synonym: category
-    for category, syns in USER_CATEGORIES.items()
+    for category, syns in CATEGORIES.items()
     for synonym in syns
 }
 TOKEN_SPLIT = re.compile(r"[\W_]+")  # Non-word characters and underscores
@@ -32,7 +32,7 @@ def _build_token_map(categories: dict[str, list[str]]) -> dict[str, str]:
     }
 
 
-def infer_category(path: Path, categories: dict[str, list[str]] = USER_CATEGORIES) -> str:
+def infer_category(path: Path, categories: dict[str, list[str]] = CATEGORIES) -> str:
     token_map = _build_token_map(categories)
 
     parts = _tokenize(path.stem)
@@ -51,7 +51,7 @@ def infer_category(path: Path, categories: dict[str, list[str]] = USER_CATEGORIE
 
 
 def _create_output_folders(target: Path) -> None:
-    for folder in list(USER_CATEGORIES) + ['_unsorted']:
+    for folder in list(CATEGORIES) + ['_unsorted']:
         (target / folder).mkdir(parents=True, exist_ok=True)
 
 

@@ -4,7 +4,7 @@ COPY_FILES = True  # True → copy, False → move
 SOURCE_DIR = Path(r'C:\Users\You\Desktop\splice new\merged')
 TARGET_DIR = Path(r'C:\Users\You\Desktop\Ableton\sorted')
 
-USER_CATEGORIES: dict[str, list[str]] = {
+CATEGORIES: dict[str, list[str]] = {
     'hat':          ['hat', 'hh', 'hihat'],
     'kick':         ['kick', 'kck', 'kik'],
     'snare':        ['snare', 'sd'],

@@ -60,11 +60,19 @@ Everything is sorted. Anything ambiguous? It’s in `_unsorted/`, ready for revi
 
 # 🛠 Configuration
 
-Open sort.py and tweak the following at the top:
-    - SOURCE_DIR / TARGET_DIR: Set your input/output folders
-    - KEYWORDS: Add or remove keywords for sorting
-    - COPY_FILES: Toggle between copying or moving files
+Here's the formatted version for the README:
 
+---
+
+### 🛠 Configuration
+
+Open `config_user.py` and tweak the following:
+
+* **`SOURCE_DIR` / `TARGET_DIR`** – Set your input and output folders
+* **`COPY_FILES`** – Toggle between copying (`True`) or moving (`False`) files
+* **`CATEGORIES`** – Add or remove keywords for sorting
+
+then run
 ```bash
 python sort_samples.py
 ```
